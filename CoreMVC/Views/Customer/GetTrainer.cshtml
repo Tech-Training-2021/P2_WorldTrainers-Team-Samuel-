@@ -1,0 +1,104 @@
+﻿@model IEnumerable<CoreMVC.Models.Skillsett>
+
+@{
+    ViewData["Title"] = "GetTrainer";
+}
+
+<h1>Get Trainer</h1>
+<br />
+<br />
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Trainer name.." title="Type in a name">
+<br /><br />
+
+<table class="table table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Education)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Experience)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Skill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Domain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.F_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.L_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="prod">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Education)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Experience)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Skill)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Domain)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.F_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.L_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h3 id="hidd" hidden style="text-align:center;">No Trainer found</h3>
+<script>
+
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue, id, cl, c = 0;
+        input = document.getElementById("myInput");
+        id = document.getElementById("hidd");
+        cl = document.getElementsByClassName("prod");
+        cl = cl.length;
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[5];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    id.style.display = "none";
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                    c += 1;
+                }
+            }
+        }
+        if (c == cl) {
+            id.style.display = "block";
+        }
+    }
+</script>

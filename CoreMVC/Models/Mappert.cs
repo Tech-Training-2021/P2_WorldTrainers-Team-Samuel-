@@ -66,10 +66,47 @@ namespace CoreMVC.Models
         {
             return new Data.Entities.SkillSet()
             {
+                Id=s.Id,
                 Education = s.Education,
                 Experience = s.Experience,
                 Skill = s.Skill,
                 Domain = s.Domain
+            };
+        }
+        public static CoreMVC.Models.SkillSet MapSkill(Data.Entities.SkillSet s)
+        {
+            return new CoreMVC.Models.SkillSet()
+            {
+                Id = s.Id,
+                Education = s.Education,
+                Experience = s.Experience,
+                Skill = s.Skill,
+                Domain = s.Domain
+            };
+        }
+        public static Data.Entities.SkillSet MaptSkill(CoreMVC.Models.Skillsett s)
+        {
+            return new Data.Entities.SkillSet()
+            {
+                Id = s.Id,
+                Education = s.Education,
+                Experience = s.Experience,
+                Skill = s.Skill,
+                Domain = s.Domain           
+            };
+        }
+        public static CoreMVC.Models.Skillsett MaptSkill(Data.Entities.SkillSet s)
+        {
+            return new CoreMVC.Models.Skillsett()
+            {
+                Id = s.Id,
+                Education = s.Education,
+                Experience = s.Experience,
+                Skill = s.Skill,
+                Domain = s.Domain,
+                F_Name = s.Registeration.F_Name,
+                L_Name = s.Registeration.L_Name,
+                Email = s.Registeration.Email
             };
         }
         public static CoreMVC.Models.Registeration MapCVM(Data.Entities.Registeration registeration)

@@ -84,16 +84,36 @@ namespace CoreMVC.Controllers
             }
             
         }
-
-        public ActionResult GetUser()
+        public ActionResult GetTrainer()
         {
             var customers = repo.GetUsers();
-            var data = new List<CoreMVC.Models.Registeration>();
+            var data = new List<CoreMVC.Models.Skillsett>();
             foreach (var c in customers)
             {
-                data.Add(Mappert.Map(c));
+                data.Add(Mappert.MaptSkill(c));
             }
             return View(data);
+        }
+
+        public ActionResult GetProfile()
+        {
+            string user = HttpContext.Session.GetString("Username");
+            var profile = repo.GetProfile(user);
+            return View(Mappert.Map(profile));
+        }
+        public ActionResult GetSkills()
+        {
+            string user = HttpContext.Session.GetString("Username");
+            var skillset = repo.GetSkill(user);
+            if(skillset != null)
+            {
+                return View(Mappert.MapSkill(skillset));
+            }
+            else
+            {
+                return RedirectToAction("Skillset");
+            }
+            
         }
         public ActionResult GetCustomerById(int? id)
         {
@@ -103,7 +123,8 @@ namespace CoreMVC.Controllers
         public ActionResult DeleteCustomerById(int? id)
         {
             repo.DeleteCustomerById(id);
-            return RedirectToAction("GetUser");
+            Logout();
+            return RedirectToAction("Loginn");
         }
         [HttpGet]
         public IActionResult Update(int id)
@@ -126,16 +147,45 @@ namespace CoreMVC.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Update(Registeration reg)
+        public IActionResult Update(int id,Registeration reg)
         {
             if (ModelState.IsValid)
             {
-                repo.Edit(Mappert.Map(reg));
-                return RedirectToAction("GetUser");
+                repo.Edit(Mappert.Map(reg),id);
+                return RedirectToAction("GetProfile");
             }
             else
             {
                 return View(reg);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Updateskill()
+        {
+            string user = HttpContext.Session.GetString("Username");
+            var data = repo.GetSkill(user);
+                if (data != null)
+                {
+                    return View(Mappert.MapSkill(data));
+                }
+                else
+                {
+                    return RedirectToAction("GetUser");
+                }
+        }
+        [HttpPost]
+        public IActionResult Updateskill(SkillSet sk)
+        {
+            if (ModelState.IsValid)
+            {
+                string user = HttpContext.Session.GetString("Username");
+                repo.EditSkill(Mappert.MapSkill(sk),user);
+                return RedirectToAction("GetSkills");
+            }
+            else
+            {
+                return View(sk);
             }
         }
 

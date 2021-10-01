@@ -67,9 +67,32 @@ namespace Data
              else
                  return 0;
         }
-        public IEnumerable<Registeration> GetUsers()
+        public IEnumerable<SkillSet> GetUsers()
         {
-            return _Context.Registerations.OrderBy(a => a.F_Name).ToList();
+           /* var regg = (from skills in _Context.SkillSets
+                        join reg in _Context.Registerations on skills.RegisterationId equals reg.Id
+                        select )*/
+            return _Context.SkillSets.Include("Registeration").ToList();
+        }
+        public Registeration GetProfile(string user)
+        {
+            var data = _Context.Logins.Where(s => s.Username == user).FirstOrDefault();
+            int reg_id = data.RegisterationId;
+            return _Context.Registerations.Where(s => s.Id == reg_id).FirstOrDefault();
+        }
+        public SkillSet GetSkill(string user)
+        {
+            var data = _Context.Logins.Where(s => s.Username == user).FirstOrDefault();
+            int reg_id = data.RegisterationId;
+            var skills= _Context.SkillSets.Where(s => s.RegisterationId == reg_id).FirstOrDefault();
+            if(skills != null)
+            {
+                return skills;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public Registeration GetCustomerById(int? id)
@@ -89,11 +112,29 @@ namespace Data
                 throw new ArgumentException("Id cannot be less than 0");
             }
         }
-        public void Edit(Registeration reg)
+        public void Edit(Registeration reg,int id)
         {
             if (reg != null)
             {
-                _Context.Entry(reg).State = EntityState.Modified;
+                var data = _Context.Registerations.Where(s => s.Id == id).FirstOrDefault();
+                int role_id = data.RoleId;
+                reg.RoleId = role_id;
+                data.F_Name = reg.F_Name;
+                data.L_Name = reg.L_Name;
+                data.Contact = reg.Contact;
+                data.Email = reg.Email;
+                data.Locations = reg.Locations;
+                _Context.SaveChanges();
+            }
+        }
+        public void EditSkill(SkillSet sk,string user)
+        {
+            if (sk != null)
+            {
+                var data = _Context.Logins.Where(s => s.Username == user).FirstOrDefault();
+                int reg_id = data.RegisterationId;
+                sk.RegisterationId = reg_id;
+                _Context.Entry(sk).State = EntityState.Modified;
                 _Context.SaveChanges();
             }
         }

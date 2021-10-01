@@ -148,7 +148,10 @@ C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\CoreMVC\bin\Debug\net5.0\Data.
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\CoreMVC\bin\Debug\net5.0\Data.pdb
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\CoreMVC\obj\Debug\net5.0\Razor\Views\Customer\AddR.cshtml.g.cs
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\CoreMVC\obj\Debug\net5.0\Razor\Views\Customer\GetCustomerById.cshtml.g.cs
-C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\CoreMVC\obj\Debug\net5.0\Razor\Views\Customer\GetUser.cshtml.g.cs
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\CoreMVC\obj\Debug\net5.0\Razor\Views\Customer\Loginn.cshtml.g.cs
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\CoreMVC\obj\Debug\net5.0\Razor\Views\Customer\Update.cshtml.g.cs
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\CoreMVC\obj\Debug\net5.0\Razor\Views\Customer\Skillset.cshtml.g.cs
+C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\CoreMVC\obj\Debug\net5.0\Razor\Views\Customer\GetSkills.cshtml.g.cs
+C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\CoreMVC\obj\Debug\net5.0\Razor\Views\Customer\Updateskill.cshtml.g.cs
+C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\CoreMVC\obj\Debug\net5.0\Razor\Views\Customer\GetProfile.cshtml.g.cs
+C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\CoreMVC\obj\Debug\net5.0\Razor\Views\Customer\GetTrainer.cshtml.g.cs

@@ -31,10 +31,10 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="Skillset">Skill Set</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="GetProfile">Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="GetUser">Users</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="GetSkills">Skill Set</a>
                             </li>
                             <li style="float:right;margin-left:350px;margin-top:8px;">
                                 <h6>@Context.Session.GetString("Username")</h6>
@@ -50,13 +50,10 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="GetProfile">Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="SuperHero" asp-action="Index">Trainners</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="GetUser">Users</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="GetTrainer">Tainer Details</a>
                             </li>
                             <li style="float:right;margin-left:350px;margin-top:8px;">
                                 <h6>@Context.Session.GetString("Username")</h6>
