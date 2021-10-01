@@ -4,11 +4,14 @@
     ViewData["Title"] = "GetTrainer";
 }
 
-<h1>Get Trainer</h1>
+<h1>Get Trainers</h1>
 <br />
 <br />
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Trainer name.." title="Type in a name">
-<br /><br />
+<input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Trainer Or Skill" title="Type in a name">
+
+
+<br />
+<br />
 
 <table class="table table-bordered" id="myTable">
     <thead>
@@ -37,7 +40,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -72,33 +74,39 @@
         }
     </tbody>
 </table>
-<h3 id="hidd" hidden style="text-align:center;">No Trainer found</h3>
+<h3 id="hidd" style="text-align:center;" hidden>No Trainer found</h3>
 <script>
-
     function myFunction() {
-        var input, filter, table, tr, td, i, txtValue, id, cl, c = 0;
+        var input, filter, table, tr, td, i, txtValue, id, cl, c = 0,ts;
         input = document.getElementById("myInput");
         id = document.getElementById("hidd");
         cl = document.getElementsByClassName("prod");
         cl = cl.length;
+        console.log(cl);
         filter = input.value.toUpperCase();
         table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[5];
-            if (td) {
+            ts = tr[i].getElementsByTagName("td")[3];
+            if (td||ts) {
                 txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                txtValue2 = ts.textContent || ts.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter)>-1) {
                     id.style.display = "none";
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";
                     c += 1;
+                    console.log(c);
                 }
             }
         }
+        console.log(c, cl);
         if (c == cl) {
-            id.style.display = "block";
+            console.log("inside if");
+            document.getElementById("hidd").style.display = "block";
+            //id.style.display = "block";
         }
     }
 </script>

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(SuperHeroContext))]
-    [Migration("20211001055107_Skills")]
-    partial class Skills
+    [Migration("20211001101525_Added all")]
+    partial class Addedall
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -107,6 +107,46 @@ namespace Data.Migrations
                     b.ToTable("Role");
                 });
 
+            modelBuilder.Entity("Data.Entities.SkillSet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Domain")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("Domain");
+
+                    b.Property<string>("Education")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("Education");
+
+                    b.Property<string>("Experience")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("Experience");
+
+                    b.Property<int>("RegisterationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Skill")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("Skill");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RegisterationId");
+
+                    b.ToTable("SkillSets");
+                });
+
             modelBuilder.Entity("Data.Entities.Login", b =>
                 {
                     b.HasOne("Data.Entities.Registeration", "Registeration")
@@ -127,6 +167,17 @@ namespace Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("Data.Entities.SkillSet", b =>
+                {
+                    b.HasOne("Data.Entities.Registeration", "Registeration")
+                        .WithMany()
+                        .HasForeignKey("RegisterationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Registeration");
                 });
 #pragma warning restore 612, 618
         }

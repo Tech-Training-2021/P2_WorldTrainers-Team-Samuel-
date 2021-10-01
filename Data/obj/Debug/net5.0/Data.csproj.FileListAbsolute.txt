@@ -2,7 +2,6 @@ C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\Data\bin\Debug\net5.0\Data.dep
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\Data\bin\Debug\net5.0\Data.dll
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\Data\bin\Debug\net5.0\ref\Data.dll
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\Data\bin\Debug\net5.0\Data.pdb
-C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\Data\obj\Debug\net5.0\Data.csproj.AssemblyReference.cache
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\Data\obj\Debug\net5.0\Data.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\Data\obj\Debug\net5.0\Data.AssemblyInfoInputs.cache
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\Data\obj\Debug\net5.0\Data.AssemblyInfo.cs
@@ -13,3 +12,4 @@ C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\Data\obj\Debug\net5.0\Data.pdb
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\Data\bin\Debug\net5.0\Data.runtimeconfig.json
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\Data\bin\Debug\net5.0\Data.runtimeconfig.dev.json
 C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\Data\obj\Debug\net5.0\Data.genruntimeconfig.cache
+C:\Users\Kajal Padhiyar\Documents\CCL\Try\CoreMVC\Data\obj\Debug\net5.0\Data.csproj.AssemblyReference.cache

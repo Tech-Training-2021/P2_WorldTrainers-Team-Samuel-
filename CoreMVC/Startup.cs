@@ -57,7 +57,7 @@ namespace CoreMVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Customer}/{action=Loginn}/{id?}");
             });
         }
     }

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace CoreMVC.Controllers
 {
-    [Route("[controller]/[action]")]
+    //[Route("[controller]/[action]")]
 
     public class CustomerController : Controller
     {
@@ -33,7 +33,7 @@ namespace CoreMVC.Controllers
             {
                 int RegisterationId = repo.AddR(Mappert.Map(registeration));
                 repo.AddL(Mappert.Maplogin(registeration), RegisterationId);
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Loginn","Customer");
             }
             else
                 return View(registeration);
@@ -75,7 +75,7 @@ namespace CoreMVC.Controllers
             {
                 string user = HttpContext.Session.GetString("Username");
                 repo.AddSkiil(Mappert.MapSkill(sk),user);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("GetSkills", "Customer");
 
             }
              else
@@ -192,7 +192,7 @@ namespace CoreMVC.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("Username");
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Loginn","Customer");
         }
     }
 }
